@@ -2,6 +2,7 @@ package collections_utility;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class CollectionsUtilityMethods {
 			System.out.println("Insert the elements");
 			for(int i=0;i<size;i++) {
 				if(!scanner.hasNextInt()) {
-					throw new IllegalArgumentException("Invalid type. Please enter integers only");
+					throw new InputMismatchException("Invalid type. Please enter integers only");
 				}else {
 				list.add(scanner.nextInt());
 				}
@@ -60,6 +61,9 @@ public class CollectionsUtilityMethods {
 		}catch (IllegalArgumentException e) {
 			// TODO: handle exception
 			System.out.println("Error:"+e.getMessage());
+		}catch (InputMismatchException e) {
+			// TODO: handle exception
+			System.out.println("Error: "+e.getMessage());
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Unexpected error: "+e.getMessage());
